@@ -5,6 +5,7 @@ import Footer from "@/app/components/Footer";
 import HeroSection from "@/app/components/HeroSection";
 import HiringSection from "@/app/components/HiringSection";
 import JourneySection from "@/app/components/JourneySection";
+import LifeAtAdvitHubSection from "@/app/components/LifeAtAdvitHubSection";
 import Navbar from "@/app/components/Navbar";
 import PlacementSection from "@/app/components/PlacementSection";
 import ProjectsSection from "@/app/components/ProjectsSection";
@@ -17,6 +18,7 @@ export default function Home() {
         <HeroSection />
         <DomainsSection />
         <JourneySection />
+        <LifeAtAdvitHubSection />
         <PlacementSection />
         <ProjectsSection />
         <HiringSection />
