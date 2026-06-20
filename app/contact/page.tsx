@@ -3,13 +3,14 @@ import ContactForm from "./ContactForm";
 type ContactType = "" | "student" | "business" | "partner";
 
 type ContactPageProps = {
-  searchParams?: {
+  searchParams?: Promise<{
     for?: string;
-  };
+  }>;
 };
 
-export default function ContactPage({ searchParams }: ContactPageProps) {
-  const raw = (searchParams?.for || "").toLowerCase();
+export default async function ContactPage({ searchParams }: ContactPageProps) {
+  const resolvedSearchParams = await searchParams;
+  const raw = (resolvedSearchParams?.for || "").toLowerCase();
   const initialQueryType: ContactType =
     raw === "student" || raw === "business" || raw === "partner" ? (raw as Exclude<ContactType, "">) : "";
 
