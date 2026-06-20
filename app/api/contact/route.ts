@@ -11,8 +11,6 @@ type ContactPayload = {
   description?: string;
 };
 
-const defaultRecipient = "abnjain25@gmail.com";
-
 function createTransporter() {
   const host = process.env.SMTP_HOST;
   const port = process.env.SMTP_PORT ? Number(process.env.SMTP_PORT) : undefined;
@@ -52,7 +50,6 @@ export async function POST(request: Request) {
 
     const transporter = createTransporter();
     const fromEmail = process.env.SMTP_FROM || process.env.SMTP_USER;
-    const toEmail = process.env.CONTACT_TO_EMAIL || defaultRecipient;
 
     if (!fromEmail) {
       throw new Error("SMTP_FROM or SMTP_USER must be set.");
@@ -60,8 +57,7 @@ export async function POST(request: Request) {
 
     await transporter.sendMail({
       from: fromEmail,
-      to: toEmail,
-      replyTo: email,
+      to: email,
       subject: `Advit Hub Contact - ${contactingFor} - ${name}`,
       text: [
         `Name: ${name}`,
@@ -85,7 +81,7 @@ export async function POST(request: Request) {
       `,
     });
 
-    return NextResponse.json({ message: `Message sent to ${toEmail}.` });
+    return NextResponse.json({ message: `Message sent to ${email}.` });
   } catch (error) {
     const message = error instanceof Error ? error.message : "Unable to send your message right now.";
     return NextResponse.json({ message }, { status: 500 });
