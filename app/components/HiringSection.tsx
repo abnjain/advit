@@ -60,12 +60,12 @@ export default function HiringSection() {
       id="hiring"
       style={{
         background: "var(--white)",
-        padding: "96px 0",
+        padding: "25px 0",
         position: "relative",
         overflow: "hidden",
       }}
     >
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: 64 }}>
           <div
