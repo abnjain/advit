@@ -1,9 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { BROCHURE_DOWNLOAD_NAME, BROCHURE_PDF_URL, brochurePages } from "./brochureData";
 import Flipbook from "./Flipbook";
-import { usePdfPages } from "./usePdfPages";
+import { BROCHURE_DOWNLOAD_NAME, BROCHURE_PDF_URL, usePdfPages } from "./usePdfPages";
 
 type FlipBookRef = {
   pageFlip: () => {
@@ -33,6 +32,8 @@ export default function BrochureModal({ onClose }: { onClose: () => void }) {
   const [page, setPage] = useState(0);
   const flipRef = useRef<FlipBookRef>(null);
   const { pages, loading } = usePdfPages(BROCHURE_PDF_URL);
+  const totalPages = pages.length;
+  const visiblePage = Math.min(page + 1, Math.max(totalPages, 1));
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -84,8 +85,7 @@ export default function BrochureModal({ onClose }: { onClose: () => void }) {
         }}
       >
         <span style={{ color: "rgba(255,255,255,0.55)", fontSize: 13, fontWeight: 600 }}>
-          {brochurePages[page]?.label || "Advit Hub Brochure"} · Page {page + 1} of{" "}
-          {brochurePages.length}
+          Advit Hub Brochure · Page {visiblePage} of {totalPages || "--"}
         </span>
 
         <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
@@ -179,11 +179,11 @@ export default function BrochureModal({ onClose }: { onClose: () => void }) {
           padding: "4px 8px",
         }}
       >
-        {brochurePages.map((p, i) => (
+        {pages.map((p, i) => (
           <button
-            key={p.src}
+            key={`${i}-${p.src}`}
             onClick={() => flipRef.current?.pageFlip().flip(i)}
-            aria-label={`Go to page ${i + 1}: ${p.label}`}
+            aria-label={`Go to page ${i + 1}`}
             style={{
               flexShrink: 0,
               width: 40,
@@ -195,7 +195,7 @@ export default function BrochureModal({ onClose }: { onClose: () => void }) {
               opacity: page === i ? 1 : 0.55,
               cursor: "pointer",
               padding: 0,
-              backgroundImage: pages[i]?.src ? `url(${pages[i].src})` : "none",
+              backgroundImage: `url(${p.src})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               transition: "opacity 0.2s, border-color 0.2s",

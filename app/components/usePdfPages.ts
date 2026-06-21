@@ -2,6 +2,9 @@
 
 import { useEffect, useState } from "react";
 
+export const BROCHURE_PDF_URL = "/assets/brochure/advit-hub-brochure.pdf";
+export const BROCHURE_DOWNLOAD_NAME = "Advit-Hub-Brochure.pdf";
+
 export type RenderedPage = {
   src: string; // data URL
   width: number;

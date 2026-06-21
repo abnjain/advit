@@ -3,9 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { BROCHURE_DOWNLOAD_NAME, BROCHURE_PDF_URL } from "./brochureData";
 import BrochureModal from "./BrochureModal";
-import { usePdfPages } from "./usePdfPages";
+import { BROCHURE_DOWNLOAD_NAME, BROCHURE_PDF_URL, usePdfPages } from "./usePdfPages";
 
 export default function BrochureSection() {
   const [open, setOpen] = useState(false);
