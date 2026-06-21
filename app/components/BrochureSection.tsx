@@ -3,17 +3,22 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { BROCHURE_DOWNLOAD_NAME, BROCHURE_PDF_URL, brochurePages } from "./brochureData";
+import { BROCHURE_DOWNLOAD_NAME, BROCHURE_PDF_URL } from "./brochureData";
 import BrochureModal from "./BrochureModal";
-
-const previewStack = [
-  { src: brochurePages[6].src, rotate: -8, z: 1, top: 36, left: 6 }, // Projects & Work
-  { src: brochurePages[4].src, rotate: 5, z: 2, top: 14, left: 26 }, // Solution
-  { src: brochurePages[0].src, rotate: -2, z: 3, top: 0, left: 46 }, // Cover
-];
+import { usePdfPages } from "./usePdfPages";
 
 export default function BrochureSection() {
   const [open, setOpen] = useState(false);
+  const { pages } = usePdfPages(BROCHURE_PDF_URL);
+
+  const previewStack = [
+    { src: pages[6]?.src, rotate: -8, z: 1, top: 36, left: 6 },
+    { src: pages[4]?.src, rotate: 5, z: 2, top: 14, left: 26 },
+    { src: pages[0]?.src, rotate: -2, z: 3, top: 0, left: 46 },
+  ].filter(
+    (page): page is { src: string; rotate: number; z: number; top: number; left: number } =>
+      Boolean(page.src),
+  );
 
   return (
     <section

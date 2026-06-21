@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { BROCHURE_DOWNLOAD_NAME, BROCHURE_PDF_URL, brochurePages } from "./brochureData";
 import Flipbook from "./Flipbook";
+import { usePdfPages } from "./usePdfPages";
 
 type FlipBookRef = {
   pageFlip: () => {
@@ -31,6 +32,7 @@ const navArrowStyle: React.CSSProperties = {
 export default function BrochureModal({ onClose }: { onClose: () => void }) {
   const [page, setPage] = useState(0);
   const flipRef = useRef<FlipBookRef>(null);
+  const { pages, loading } = usePdfPages(BROCHURE_PDF_URL);
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -144,12 +146,15 @@ export default function BrochureModal({ onClose }: { onClose: () => void }) {
           aria-label="Previous page"
           className="brochure-nav-arrow"
           style={navArrowStyle}
+          disabled={loading || pages.length === 0}
         >
           ‹
         </button>
 
         <div style={{ width: "100%", maxWidth: 760 }}>
-          <Flipbook ref={flipRef} onFlip={setPage} width={380} height={520} />
+          {pages.length > 0 ? (
+            <Flipbook ref={flipRef} pages={pages} onFlip={setPage} width={380} height={520} />
+          ) : null}
         </div>
 
         <button
@@ -157,6 +162,7 @@ export default function BrochureModal({ onClose }: { onClose: () => void }) {
           aria-label="Next page"
           className="brochure-nav-arrow"
           style={navArrowStyle}
+          disabled={loading || pages.length === 0}
         >
           ›
         </button>
@@ -189,7 +195,7 @@ export default function BrochureModal({ onClose }: { onClose: () => void }) {
               opacity: page === i ? 1 : 0.55,
               cursor: "pointer",
               padding: 0,
-              backgroundImage: `url(${p.src})`,
+              backgroundImage: pages[i]?.src ? `url(${pages[i].src})` : "none",
               backgroundSize: "cover",
               backgroundPosition: "center",
               transition: "opacity 0.2s, border-color 0.2s",
