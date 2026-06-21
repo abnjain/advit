@@ -9,6 +9,7 @@ import LifeAtAdvitHubSection from "@/app/components/LifeAtAdvitHubSection";
 import Navbar from "@/app/components/Navbar";
 import PlacementSection from "@/app/components/PlacementSection";
 import ProjectsSection from "@/app/components/ProjectsSection";
+import BrochureSection from "@/app/components/BrochureSection";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <HeroSection />
         <DomainsSection />
         <JourneySection />
+        <BrochureSection />
         <LifeAtAdvitHubSection />
         <PlacementSection />
         <ProjectsSection />
