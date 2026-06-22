@@ -1,0 +1,13 @@
+/* TEAM */
+    Founder: Advit Hub Team
+    Contact: contact@advithub.in
+    Location: Indore, Madhya Pradesh, India
+
+/* SITE */
+    URL: https://advithub.in
+    Language: English
+    Doctype: Next.js / React / TypeScript
+    Framework: Next.js 16 (App Router)
+
+/* THANKS */
+    Built with love for students, builders, and innovators.

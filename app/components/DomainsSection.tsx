@@ -222,20 +222,20 @@ export default function DomainsSection() {
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: 64 }}>
-          <div
+          <header
             style={{
               display: "inline-block",
               fontSize: 11,
               fontWeight: 700,
               letterSpacing: "0.12em",
               textTransform: "uppercase",
-              color: "var(--blue)",
+              color: "var(--accent)",
               marginBottom: 12,
               fontFamily: "var(--font-sans)",
             }}
           >
             Learning Domains
-          </div>
+          </header>
           <h2
             style={{
               fontSize: "clamp(28px, 4vw, 44px)",
@@ -274,7 +274,7 @@ export default function DomainsSection() {
           }}
         >
           {domains.map((domain, i) => (
-            <div
+            <article
               key={i}
               style={{
                 background: "var(--white)",
@@ -335,7 +335,7 @@ export default function DomainsSection() {
               >
                 {domain.desc}
               </p>
-            </div>
+            </article>
           ))}
         </div>
       </div>

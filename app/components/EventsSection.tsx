@@ -185,7 +185,7 @@ export default function EventsSection() {
           }}
         >
           {events.map((event, i) => (
-            <div
+            <article
               key={i}
               style={{
                 background: "var(--white)",
@@ -274,7 +274,7 @@ export default function EventsSection() {
                   {event.desc}
                 </p>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

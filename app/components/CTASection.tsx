@@ -190,7 +190,7 @@ export default function CTASection() {
           }}
         >
           {audiences.map((aud, i) => (
-            <div
+            <article
               key={i}
               style={{
                 background: aud.bg,
@@ -266,7 +266,7 @@ export default function CTASection() {
                 {aud.cta}
                 <span style={{ fontSize: 16 }}>→</span>
               </a>
-            </div>
+            </article>
           ))}
         </div>
 

@@ -70,7 +70,7 @@ export default function HiringSection() {
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: 64 }}>
-          <div
+          <header
             style={{
               display: "inline-block",
               fontSize: 11,
@@ -83,7 +83,7 @@ export default function HiringSection() {
             }}
           >
             Internal Hiring
-          </div>
+          </header>
           <h2
             style={{
               fontSize: "clamp(28px, 4vw, 44px)",
@@ -124,7 +124,7 @@ export default function HiringSection() {
           }}
         >
           {hiringPerks.map((perk, i) => (
-            <div
+            <article
               key={i}
               style={{
                 background: "var(--off-white)",
@@ -185,7 +185,7 @@ export default function HiringSection() {
               >
                 {perk.desc}
               </p>
-            </div>
+            </article>
           ))}
         </div>
 

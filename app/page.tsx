@@ -10,10 +10,12 @@ import Navbar from "@/app/components/Navbar";
 // import PlacementSection from "@/app/components/PlacementSection";
 import ProjectsSection from "@/app/components/ProjectsSection";
 import BrochureSection from "@/app/components/BrochureSection";
+import FaqJsonLd from "@/app/components/FaqJsonLd";
 
 export default function Home() {
   return (
     <>
+      <FaqJsonLd />
       <Navbar />
       <main>
         <HeroSection />

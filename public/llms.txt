@@ -1,0 +1,35 @@
+# Advit Hub — llms.txt
+# This file helps LLMs understand the structure and content of advithub.in.
+# More info: https://llmstxt.org/
+
+# About
+Advit Hub is an education-first innovation ecosystem where students learn real skills, build live projects, and grow into industry-ready professionals.
+
+# Core pages
+- Home: https://advithub.in/
+- Courses: https://advithub.in/courses
+- Contact: https://advithub.in/contact
+
+# What we offer
+- IT & Software Development
+- Web Development
+- App Development
+- Cloud Engineering
+- DevOps & Automation
+- AI & Machine Learning
+- Digital Marketing
+- Content Creation
+- UI/UX Design
+- Business Technology
+- System Design
+- Data & Databases
+
+# Key differentiators
+- Learn: Practical, industry-relevant skills through structured training and mentorship
+- Build: Live projects, freelance work, and internal product development
+- Work: Real codebases, real teams, real client work
+- Get Placed: Direct pipeline from learning to earning
+
+# Contact
+- Email: contact@advithub.in
+- Website: https://advithub.in

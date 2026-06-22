@@ -101,7 +101,7 @@ export default function JourneySection() {
           }}
         >
           {steps.map((step, i) => (
-            <div
+            <article
               key={i}
               style={{
                 background: "var(--off-white)",
@@ -221,7 +221,7 @@ export default function JourneySection() {
                   </div>
                 ))}
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

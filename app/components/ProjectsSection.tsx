@@ -123,7 +123,7 @@ export default function ProjectsSection() {
           className="projects-grid"
         >
           {projectTypes.map((project, i) => (
-            <div
+            <article
               key={i}
               style={{
                 background: "var(--white)",
@@ -239,7 +239,7 @@ export default function ProjectsSection() {
                   </span>
                 ))}
               </div>
-            </div>
+            </article>
           ))}
         </div>
 

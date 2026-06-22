@@ -1,0 +1,161 @@
+# Advit Hub — llm-full.txt
+# Comprehensive guide for Large Language Models
+# URL: https://advithub.in
+# More info: https://llmstxt.org/
+
+===============================================================================
+# ABOUT
+===============================================================================
+
+Advit Hub is an education-first innovation ecosystem where students learn real
+skills, build live and freelance projects, develop internal products, get
+placed, and connect with global partners across IT, AI, cloud, design, and
+business technology.
+
+===============================================================================
+# NAVIGATION
+===============================================================================
+
+- Home: https://advithub.in/
+- Courses: https://advithub.in/courses
+- Contact: https://advithub.in/contact
+
+===============================================================================
+# BRAND
+===============================================================================
+
+Name: Advit Hub
+Tagline: Education-First Innovation Ecosystem
+Short tagline: Learn real skills, build real products, get placed.
+URL: https://advithub.in
+Email: contact@advithub.in
+Founded: 2024
+Locations: Indore (India), USA, Nepal
+
+===============================================================================
+# LEARNING DOMAINS (12+)
+===============================================================================
+
+1. IT & Software Development
+   Programming foundations, OOP, and production-grade software engineering.
+
+2. Web Development
+   Modern responsive websites and full-stack web applications.
+
+3. App Development
+   Cross-platform mobile apps from concept to launch.
+
+4. Cloud Engineering
+   Deploy, scale, and manage applications in the cloud.
+
+5. DevOps & Automation
+   CI/CD, containers, and automated delivery pipelines.
+
+6. AI & Machine Learning
+   Build intelligent systems, models, and real AI products.
+
+7. Digital Marketing
+   Growth, SEO, ads, and performance marketing.
+
+8. Content Creation
+   Writing, video, and content that builds audiences.
+
+9. UI/UX Design
+   Design intuitive, beautiful product experiences.
+
+10. Business Technology
+    Tech that drives real business operations and growth.
+
+11. System Design
+    Architect scalable, reliable, high-performance systems.
+
+12. Data & Databases
+    Model, store, and work with data at scale.
+
+===============================================================================
+# STUDENT JOURNEY
+===============================================================================
+
+## 01 — Learn
+Master practical, industry-relevant skills through structured training and
+mentorship. Features: structured curriculum, industry mentors, hands-on labs,
+live Q&A sessions.
+
+## 02 — Build
+Apply skills on live projects, freelance work, and internal product builds.
+Features: live project teams, freelance client work, internal products, real
+codebases.
+
+## 03 — Work
+Join real product teams, work alongside experienced professionals, and
+contribute to real products with real impact.
+
+## 04 — Get Placed
+Top performers transition directly into paid full-time positions within the
+Advit Hub team, partner projects, and industry roles.
+
+===============================================================================
+# PLACEMENTS & HIRING
+===============================================================================
+
+- Full-time roles: Top performers transition into paid full-time positions
+- Real product teams: Work alongside experienced professionals on real products
+- Mentored growth: Continuous mentorship, structured feedback, clear path
+
+===============================================================================
+# GLOBAL PARTNERS
+===============================================================================
+
+1. Dangi Innovation Lab — Research and Innovation
+   https://www.dangiinnovationlab.com/
+
+2. VVDx — Product and Engineering
+   https://vvdx.in
+
+3. Dangi Realities — PropTech and Digital
+   https://dangiglobal.com/
+
+4. Aggrerate AI — AI & Automation
+   https://agripilot.ai/
+
+===============================================================================
+# COURSES
+===============================================================================
+
+- Java Full Stack: Backend & frontend with Spring Boot + React
+- Web Development: Modern responsive websites and full-stack apps
+- Content Creation: Writing, video, and content that builds audiences
+- Digital Marketing: Growth, SEO, ads, and performance marketing
+- More courses available across all 12+ learning domains
+
+===============================================================================
+# FREQUENTLY ASKED QUESTIONS
+===============================================================================
+
+Q: What is Advit Hub?
+A: An education-first innovation ecosystem for practical skill development,
+   live project experience, and placement into industry roles.
+
+Q: Who can join?
+A: Anyone wanting practical, industry-ready skills — beginners to advanced
+   learners, students, graduates, and professionals.
+
+Q: Does Advit Hub help with placements?
+A: Yes. Top performers are placed into internal teams, partner projects,
+   freelance work, and full-time roles.
+
+Q: Is it only for students in Indore?
+A: No. Primary hub is in Indore with presence across India, USA, and Nepal.
+   Many programs are accessible remotely.
+
+Q: How is it different from college or online courses?
+A: Focus on real execution — building real products, live projects, team
+   collaboration, and solving actual industry problems.
+
+===============================================================================
+# CONTACT
+===============================================================================
+
+- Email: contact@advithub.in
+- Website: https://advithub.in
+- Contact form: https://advithub.in/contact

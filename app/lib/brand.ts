@@ -21,6 +21,29 @@ export const BRAND = {
   brochureDownloadName: "Advit-Hub-Brochure.pdf",
 
   sectionIdLifeAtAdvitHub: "life-at-advit-hub",
+
+  // SEO / AEO / GEO
+  sameAs: [
+    "https://linkedin.com/company/advithub",
+    "https://instagram.com/advithub",
+    "https://twitter.com/advithub",
+    "https://facebook.com/advithub",
+    "https://youtube.com/@advithub",
+  ] as readonly string[],
+  address: {
+    street: "Innovation Hub, Scheme No. 54",
+    locality: "Indore",
+    region: "Madhya Pradesh",
+    country: "IN",
+    postCode: "452010",
+  } as const,
+  foundingDate: "2024",
+  founder: "Advit Hub Team",
+  mapUrl: "https://maps.google.com/?q=Advit+Hub+Indore",
+  priceRange: "₹",
+  telephone: "+91-8085648283",
+  keywords:
+    "education, tech training, web development, software development, AI, cloud, DevOps, placements, freelance projects, Indore, India, coding bootcamp, IT training",
 } as const;
 
 export const BRAND_NAME = BRAND.name;
