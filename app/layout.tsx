@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { BRAND_NAME, BRAND_TAGLINE, BRAND_DESCRIPTION, BRAND_TAGLINE_SHORT, BRAND_URL } from "@/app/lib/brand";
+import { BRAND_NAME, BRAND_TAGLINE, BRAND_DESCRIPTION, BRAND_TAGLINE_SHORT, BRAND_URL, BRAND_LOGO_PATH } from "@/app/lib/brand";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -17,6 +17,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: BRAND_NAME,
     description: BRAND_TAGLINE_SHORT,
+  },
+  icons: {
+    icon: BRAND_LOGO_PATH,
+    apple: BRAND_LOGO_PATH,
   },
 };
 

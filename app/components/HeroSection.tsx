@@ -400,30 +400,62 @@ export default function HeroSection() {
           </div>
 
           <div
-            className="hero-partner-marquee"
             style={{
-              display: "flex",
-              gap: 14,
-              width: "max-content",
-              padding: "0 24px",
+              position: "relative",
+              overflow: "hidden",
+              width: "100vw",
+              marginLeft: "calc(-50vw + 50%)",
             }}
           >
-            {[...partners, ...partners].map((partner, i) => (
-              <BrandChip key={`${partner.name}-${i}`} {...partner} />
-            ))}
-          </div>
-          <div
-            className="hero-partner-marquee hero-partner-marquee-alt"
-            style={{
-              display: "flex",
-              gap: 14,
-              width: "max-content",
-              padding: "14px 24px 0",
-            }}
-          >
-            {[...partners, ...partners].map((partner, i) => (
-              <BrandChip key={`${partner.name}-alt-${i}`} {...partner} />
-            ))}
+            {/* Left fade */}
+            <div
+              style={{
+                position: "absolute",
+                inset: "0 auto 0 0",
+                width: 120,
+                background:
+                  "linear-gradient(90deg, var(--navy) 0%, transparent 100%)",
+                zIndex: 3,
+                pointerEvents: "none",
+              }}
+            />
+            {/* Right fade */}
+            <div
+              style={{
+                position: "absolute",
+                inset: "0 0 0 auto",
+                width: 120,
+                background:
+                  "linear-gradient(270deg, var(--navy) 0%, transparent 100%)",
+                zIndex: 3,
+                pointerEvents: "none",
+              }}
+            />
+            <div
+              className="hero-partner-marquee"
+              style={{
+                display: "flex",
+                gap: 14,
+                width: "max-content",
+              }}
+            >
+              {[...partners, ...partners].map((partner, i) => (
+                <BrandChip key={`${partner.name}-${i}`} {...partner} />
+              ))}
+            </div>
+            <div
+              className="hero-partner-marquee hero-partner-marquee-alt"
+              style={{
+                display: "flex",
+                gap: 14,
+                width: "max-content",
+                paddingTop: 14,
+              }}
+            >
+              {[...partners, ...partners].map((partner, i) => (
+                <BrandChip key={`${partner.name}-alt-${i}`} {...partner} />
+              ))}
+            </div>
           </div>
         </div>
 
@@ -510,25 +542,27 @@ export default function HeroSection() {
         }
 
         .hero-partner-marquee {
-          animation: hero-partner-marquee 28s linear infinite;
+          animation: hero-partner-marquee 30s linear infinite;
+          will-change: transform;
+          backface-visibility: hidden;
         }
 
         .hero-partner-marquee-alt {
-          animation-duration: 32s;
+          animation-duration: 34s;
           animation-direction: reverse;
         }
 
         @keyframes hero-partner-marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+          0% { transform: translate3d(0, 0, 0); }
+          100% { transform: translate3d(-50%, 0, 0); }
         }
 
         @media (max-width: 768px) {
           .hero-partner-marquee {
-            animation-duration: 20s;
+            animation-duration: 22s;
           }
           .hero-partner-marquee-alt {
-            animation-duration: 23s;
+            animation-duration: 25s;
           }
         }
       `}</style>
