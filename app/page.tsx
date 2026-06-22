@@ -7,7 +7,7 @@ import HiringSection from "@/app/components/HiringSection";
 import JourneySection from "@/app/components/JourneySection";
 import LifeAtAdvitHubSection from "@/app/components/LifeAtAdvitHubSection";
 import Navbar from "@/app/components/Navbar";
-import PlacementSection from "@/app/components/PlacementSection";
+// import PlacementSection from "@/app/components/PlacementSection";
 import ProjectsSection from "@/app/components/ProjectsSection";
 import BrochureSection from "@/app/components/BrochureSection";
 
@@ -21,7 +21,7 @@ export default function Home() {
         <JourneySection />
         <BrochureSection />
         <LifeAtAdvitHubSection />
-        <PlacementSection />
+        {/* <PlacementSection /> */}
         <ProjectsSection />
         <HiringSection />
         <EventsSection />

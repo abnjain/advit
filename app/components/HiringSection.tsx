@@ -67,7 +67,7 @@ export default function HiringSection() {
         overflow: "hidden",
       }}
     >
-      <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px" }}>
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: 64 }}>
           <div
@@ -117,9 +117,10 @@ export default function HiringSection() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
             gap: 20,
             marginBottom: 48,
+            justifyContent: "center",
           }}
         >
           {hiringPerks.map((perk, i) => (
@@ -131,6 +132,7 @@ export default function HiringSection() {
                 padding: "28px 24px",
                 border: "1px solid var(--gray-200)",
                 transition: "all 0.25s",
+                textAlign: "center",
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLDivElement;
@@ -157,7 +159,7 @@ export default function HiringSection() {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  marginBottom: 18,
+                  margin: "0 auto 18px",
                 }}
               >
                 <PerkIcon type={perk.icon} color={perk.color} />
@@ -188,7 +190,7 @@ export default function HiringSection() {
         </div>
 
         {/* CTA Row */}
-        <div
+        {/* <div
           style={{
             display: "flex",
             justifyContent: "center",
@@ -219,7 +221,7 @@ export default function HiringSection() {
           >
             See How It Works →
           </button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

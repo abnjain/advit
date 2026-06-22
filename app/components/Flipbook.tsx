@@ -10,6 +10,8 @@ type FlipbookProps = {
   className?: string;
   width?: number;
   height?: number;
+  showTwoPages?: boolean;
+  fixedSize?: boolean;
 };
 
 const Page = forwardRef<HTMLDivElement, { src: string; index: number }>(
@@ -25,7 +27,7 @@ const Page = forwardRef<HTMLDivElement, { src: string; index: number }>(
             inset: 0,
             width: "100%",
             height: "100%",
-            objectFit: "cover",
+            objectFit: "contain",
             userSelect: "none",
             pointerEvents: "none",
           }}
@@ -39,25 +41,34 @@ Page.displayName = "Page";
 const Flipbook = forwardRef<
   { pageFlip: () => { flipNext: () => void; flipPrev: () => void; flip: (n: number) => void } },
   FlipbookProps
->(function Flipbook({ pages, onFlip, className = "", width = 420, height = 560 }, ref) {
+>(function Flipbook({ pages, onFlip, className = "", width = 420, height = 560, showTwoPages = false, fixedSize = false }, ref) {
+  // Detect if the PDF is predominantly landscape
+  const landscapeCount = pages.filter((p) => p.width > p.height).length;
+  const isLandscape = pages.length > 0 && landscapeCount > pages.length / 2;
+  // Use 2-page spread mode when showTwoPages is requested (portrait pages side by side)
+  const useSpread = showTwoPages || isLandscape;
+  // For showTwoPages (portrait spread), keep width > height.
+  // For isLandscape (landscape spread), swap so two landscape pages stack vertically.
+  const fbWidth = isLandscape ? height : width;
+  const fbHeight = isLandscape ? width : height;
 
   return (
     <HTMLFlipBook
       ref={ref}
-      width={width}
-      height={height}
-      size="stretch"
+      width={fbWidth}
+      height={fbHeight}
+      size={fixedSize ? "fixed" : "stretch"}
       startPage={0}
       minWidth={240}
-      maxWidth={640}
-      minHeight={320}
-      maxHeight={860}
+      maxWidth={1200}
+      minHeight={100}
+      maxHeight={1200}
       maxShadowOpacity={0.4}
       showCover={true}
       mobileScrollSupport={true}
       drawShadow={true}
       flippingTime={650}
-      usePortrait={true}
+      usePortrait={!useSpread}
       startZIndex={10}
       autoSize={true}
       clickEventForward={true}

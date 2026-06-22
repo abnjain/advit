@@ -16,6 +16,7 @@ export const BRAND = {
 
   copyright: "© 2026 Advit Hub. Learn. Build. Work. Get Placed.",
 
+//   brochurePdfUrl: "/assets/brochure/Divya.pdf",
   brochurePdfUrl: "/assets/brochure/advit-hub-brochure.pdf",
   brochureDownloadName: "Advit-Hub-Brochure.pdf",
 

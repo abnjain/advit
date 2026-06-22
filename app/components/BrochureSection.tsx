@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import BrochureModal from "./BrochureModal";
+import BrochureViewer from "./BrochureViewer";
 import { BROCHURE_DOWNLOAD_NAME, BROCHURE_PDF_URL } from "@/app/lib/brand";
 import { usePdfPages } from "./usePdfPages";
 
@@ -12,11 +12,11 @@ export default function BrochureSection() {
   const { pages } = usePdfPages(BROCHURE_PDF_URL);
 
   const previewStack = [
-    { src: pages[6]?.src, rotate: -8, z: 1, top: 36, left: 6 },
-    { src: pages[4]?.src, rotate: 5, z: 2, top: 14, left: 26 },
-    { src: pages[0]?.src, rotate: -2, z: 3, top: 0, left: 46 },
+    { ...pages[6], rotate: -8, z: 1, top: 36, left: 6 },
+    { ...pages[4], rotate: 5, z: 2, top: 14, left: 26 },
+    { ...pages[0], rotate: -2, z: 3, top: 0, left: 46 },
   ].filter(
-    (page): page is { src: string; rotate: number; z: number; top: number; left: number } =>
+    (page): page is { src: string; width: number; height: number; rotate: number; z: number; top: number; left: number } =>
       Boolean(page.src),
   );
 
@@ -120,29 +120,29 @@ export default function BrochureSection() {
             <button
               onClick={() => setOpen(true)}
               style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
                 background: "linear-gradient(135deg, #2563EB, #7C3AED)",
                 color: "#fff",
                 fontSize: 14,
                 fontWeight: 700,
-                padding: "13px 26px",
-                borderRadius: 12,
+                padding: "10px 22px",
+                borderRadius: 10,
                 border: "none",
                 cursor: "pointer",
                 fontFamily: "var(--font-sans)",
-                transition: "opacity 0.2s, transform 0.2s",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 8,
+                transition: "opacity 0.2s",
               }}
               onMouseEnter={(e) => {
-                (e.currentTarget as HTMLButtonElement).style.opacity = "0.88";
+                (e.currentTarget as HTMLButtonElement).style.opacity = "0.85";
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLButtonElement).style.opacity = "1";
               }}
             >
-              Open Full View
-              <span style={{ fontSize: 16 }}>↗</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+              View Brochure
             </button>
 
             <a
@@ -176,7 +176,7 @@ export default function BrochureSection() {
           </div>
 
           <Link
-            href="/brochure"
+            href="/courses"
             style={{
               display: "inline-block",
               marginTop: 20,
@@ -187,7 +187,7 @@ export default function BrochureSection() {
               borderBottom: "1px solid rgba(96,165,250,0.3)",
             }}
           >
-            Or view it on its own page →
+            View all the courses →
           </Link>
         </div>
 
@@ -205,34 +205,37 @@ export default function BrochureSection() {
           }}
           className="brochure-preview-stack"
         >
-          {previewStack.map((p, i) => (
-            <div
-              key={i}
-              style={{
-                position: "absolute",
-                top: p.top,
-                left: `${p.left}%`,
-                width: "48%",
-                aspectRatio: "3 / 4",
-                borderRadius: 12,
-                overflow: "hidden",
-                boxShadow: "0 20px 50px rgba(0,0,0,0.45)",
-                border: "1px solid rgba(255,255,255,0.1)",
-                transform: `rotate(${p.rotate}deg)`,
-                zIndex: p.z,
-                transition: "transform 0.35s ease",
-              }}
-              className="brochure-stack-item"
-            >
-              <Image
-                src={p.src}
-                alt="Brochure preview page"
-                fill
-                sizes="320px"
-                style={{ objectFit: "cover" }}
-              />
-            </div>
-          ))}
+          {previewStack.map((p, i) => {
+            const isLandscape = p.width > p.height;
+            return (
+              <div
+                key={i}
+                style={{
+                  position: "absolute",
+                  top: p.top,
+                  left: `${p.left}%`,
+                  width: "48%",
+                  aspectRatio: isLandscape ? `${p.width}/${p.height}` : "3 / 4",
+                  borderRadius: 12,
+                  overflow: "hidden",
+                  boxShadow: "0 20px 50px rgba(0,0,0,0.45)",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                  transform: `rotate(${p.rotate}deg)`,
+                  zIndex: p.z,
+                  transition: "transform 0.35s ease",
+                }}
+                className="brochure-stack-item"
+              >
+                <Image
+                  src={p.src}
+                  alt="Brochure preview page"
+                  fill
+                  sizes="320px"
+                  style={{ objectFit: isLandscape ? "contain" : "cover" }}
+                />
+              </div>
+            );
+          })}
 
           <div
             style={{
@@ -261,7 +264,12 @@ export default function BrochureSection() {
         </button>
       </div>
 
-      {open && <BrochureModal onClose={() => setOpen(false)} />}
+      <BrochureViewer
+        pdfUrl={BROCHURE_PDF_URL}
+        downloadName={BROCHURE_DOWNLOAD_NAME}
+        open={open}
+        onClose={() => setOpen(false)}
+      />
 
       <style>{`
         .brochure-preview-stack:hover .brochure-stack-item {

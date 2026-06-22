@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Flipbook from "./Flipbook";
-import { BRAND_NAME, BROCHURE_DOWNLOAD_NAME, BROCHURE_PDF_URL } from "@/app/lib/brand";
+import { BRAND_NAME } from "@/app/lib/brand";
 import { usePdfPages } from "./usePdfPages";
 
 type FlipBookRef = {
@@ -29,10 +29,22 @@ const navArrowStyle: React.CSSProperties = {
   margin: "0 12px",
 };
 
-export default function BrochureModal({ onClose }: { onClose: () => void }) {
+type BrochureViewerProps = {
+  pdfUrl: string;
+  downloadName?: string;
+  open: boolean;
+  onClose: () => void;
+};
+
+export default function BrochureViewer({
+  pdfUrl,
+  downloadName = "brochure.pdf",
+  open,
+  onClose,
+}: BrochureViewerProps) {
   const [page, setPage] = useState(0);
   const flipRef = useRef<FlipBookRef>(null);
-  const { pages, loading } = usePdfPages(BROCHURE_PDF_URL);
+  const { pages, loading } = usePdfPages(pdfUrl);
   const totalPages = pages.length;
   const visiblePage = Math.min(page + 1, Math.max(totalPages, 1));
 
@@ -53,6 +65,7 @@ export default function BrochureModal({ onClose }: { onClose: () => void }) {
   };
 
   useEffect(() => {
+    if (!open) return;
     document.body.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -64,7 +77,9 @@ export default function BrochureModal({ onClose }: { onClose: () => void }) {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", onKey);
     };
-  }, [onClose, pages, isPortrait]);
+  }, [open, onClose]);
+
+  if (!open) return null;
 
   return (
     <div
@@ -107,8 +122,8 @@ export default function BrochureModal({ onClose }: { onClose: () => void }) {
 
         <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
           <a
-            href={BROCHURE_PDF_URL}
-            download={BROCHURE_DOWNLOAD_NAME}
+            href={pdfUrl}
+            download={downloadName}
             style={{
               display: "inline-flex",
               alignItems: "center",
