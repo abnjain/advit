@@ -263,7 +263,7 @@ export default function HeroSection() {
         }}
       >
         {/* Eyebrow badge */}
-        <div
+        {/* <div
           style={{
             display: "inline-flex",
             alignItems: "center",
@@ -291,7 +291,7 @@ export default function HeroSection() {
             }}
           />
           Education-First Innovation Ecosystem
-        </div>
+        </div> */}
 
         {/* Headline */}
         <h1
@@ -333,9 +333,7 @@ export default function HeroSection() {
           }}
         >
           {BRAND_NAME} connects learning with real execution — practical training,
-          live and freelance projects, internal product development, placements,
-          and global partnerships across IT, AI, cloud, design, and business
-          technology.
+          live and freelance projects, placements.
         </p>
 
         {/* CTA buttons */}
@@ -378,38 +376,6 @@ export default function HeroSection() {
             Start Learning
             <span style={{ fontSize: 17 }}>→</span>
           </button>
-          <button
-            onClick={() => scrollTo("#cta")}
-            style={{
-              background: "rgba(255,255,255,0.07)",
-              color: "#E2E8F0",
-              fontSize: 15,
-              fontWeight: 600,
-              padding: "14px 28px",
-              borderRadius: 12,
-              border: "1px solid rgba(255,255,255,0.15)",
-              cursor: "pointer",
-              fontFamily: "var(--font-sans)",
-              transition: "all 0.2s",
-              display: "flex",
-              alignItems: "center",
-              gap: 8,
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.background =
-                "rgba(255,255,255,0.12)";
-              (e.currentTarget as HTMLButtonElement).style.borderColor =
-                "rgba(255,255,255,0.25)";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.background =
-                "rgba(255,255,255,0.07)";
-              (e.currentTarget as HTMLButtonElement).style.borderColor =
-                "rgba(255,255,255,0.15)";
-            }}
-          >
-            Partner With Us
-          </button>
         </div>
 
         <div
@@ -434,64 +400,30 @@ export default function HeroSection() {
           </div>
 
           <div
+            className="hero-partner-marquee"
             style={{
-              position: "relative",
-              overflow: "hidden",
-              borderRadius: 20,
-              border: "1px solid rgba(255,255,255,0.08)",
-              background: "rgba(255,255,255,0.02)",
-              padding: "18px 0",
+              display: "flex",
+              gap: 14,
+              width: "max-content",
+              padding: "0 24px",
             }}
           >
-            <div
-              style={{
-                position: "absolute",
-                inset: "0 auto 0 0",
-                width: 120,
-                background:
-                  "linear-gradient(90deg, rgba(10,15,44,1) 0%, rgba(10,15,44,0) 100%)",
-                zIndex: 3,
-                pointerEvents: "none",
-              }}
-            />
-            <div
-              style={{
-                position: "absolute",
-                inset: "0 0 0 auto",
-                width: 120,
-                background:
-                  "linear-gradient(270deg, rgba(10,15,44,1) 0%, rgba(10,15,44,0) 100%)",
-                zIndex: 3,
-                pointerEvents: "none",
-              }}
-            />
-
-            <div
-              className="hero-partner-marquee"
-              style={{
-                display: "flex",
-                gap: 14,
-                width: "max-content",
-                padding: "0 24px",
-              }}
-            >
-              {[...partners, ...partners].map((partner, i) => (
-                <BrandChip key={`${partner.name}-${i}`} {...partner} />
-              ))}
-            </div>
-            <div
-              className="hero-partner-marquee hero-partner-marquee-alt"
-              style={{
-                display: "flex",
-                gap: 14,
-                width: "max-content",
-                padding: "14px 24px 0",
-              }}
-            >
-              {[...partners, ...partners].map((partner, i) => (
-                <BrandChip key={`${partner.name}-alt-${i}`} {...partner} />
-              ))}
-            </div>
+            {[...partners, ...partners].map((partner, i) => (
+              <BrandChip key={`${partner.name}-${i}`} {...partner} />
+            ))}
+          </div>
+          <div
+            className="hero-partner-marquee hero-partner-marquee-alt"
+            style={{
+              display: "flex",
+              gap: 14,
+              width: "max-content",
+              padding: "14px 24px 0",
+            }}
+          >
+            {[...partners, ...partners].map((partner, i) => (
+              <BrandChip key={`${partner.name}-alt-${i}`} {...partner} />
+            ))}
           </div>
         </div>
 
