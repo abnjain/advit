@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
+import { BRAND_NAME } from "@/app/lib/brand";
 
 type ContactType = "" | "student" | "business" | "partner";
 
@@ -139,7 +140,7 @@ export default function ContactForm({ initialQueryType }: ContactFormProps) {
               textTransform: "uppercase",
             }}
           >
-            Contact Advit Hub
+            Contact {BRAND_NAME}
           </div>
           <h1
             style={{

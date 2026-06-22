@@ -1,14 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { BRAND_LOGO_PATH, BRAND_LOGO_ALT, BRAND_NAME } from "@/app/lib/brand";
 
 const navLinks = [
-  { label: "Domains", href: "#domains" },
   { label: "Journey", href: "#journey" },
   { label: "Placements", href: "#placement" },
-  { label: "Projects", href: "#projects" },
-  { label: "Partners", href: "#partners" },
-  { label: "Events", href: "#events" },
 ];
 
 export default function Navbar() {
@@ -72,25 +69,16 @@ export default function Navbar() {
               textDecoration: "none",
             }}
           >
-            <div
+            <img
+              src={BRAND_LOGO_PATH}
+              alt={BRAND_LOGO_ALT}
               style={{
-                width: 34,
                 height: 34,
-                borderRadius: 10,
-                background: "linear-gradient(135deg, #2563EB, #7C3AED)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: 15,
-                fontWeight: 800,
-                color: "#fff",
-                fontFamily: "var(--font-sans)",
-                letterSpacing: "-0.02em",
+                width: "auto",
                 flexShrink: 0,
+                borderRadius: 6,
               }}
-            >
-              A
-            </div>
+            />
             <span
               style={{
                 fontSize: 17,
@@ -100,7 +88,7 @@ export default function Navbar() {
                 letterSpacing: "-0.02em",
               }}
             >
-              Advit Hub
+              {BRAND_NAME}
             </span>
           </a>
 

@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import Flipbook from "./Flipbook";
-import { BROCHURE_DOWNLOAD_NAME, BROCHURE_PDF_URL, usePdfPages } from "./usePdfPages";
+import { BRAND_NAME, BROCHURE_DOWNLOAD_NAME, BROCHURE_PDF_URL } from "@/app/lib/brand";
+import { usePdfPages } from "./usePdfPages";
 
 type FlipBookRef = {
   pageFlip: () => {
@@ -53,7 +54,7 @@ export default function BrochureModal({ onClose }: { onClose: () => void }) {
     <div
       role="dialog"
       aria-modal="true"
-      aria-label="Advit Hub brochure viewer"
+      aria-label={`${BRAND_NAME} brochure viewer`}
       style={{
         position: "fixed",
         inset: 0,
@@ -85,7 +86,7 @@ export default function BrochureModal({ onClose }: { onClose: () => void }) {
         }}
       >
         <span style={{ color: "rgba(255,255,255,0.55)", fontSize: 13, fontWeight: 600 }}>
-          Advit Hub Brochure · Page {visiblePage} of {totalPages || "--"}
+          {BRAND_NAME} Brochure · Page {visiblePage} of {totalPages || "--"}
         </span>
 
         <div style={{ display: "flex", gap: 10, alignItems: "center" }}>

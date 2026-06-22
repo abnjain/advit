@@ -1,5 +1,6 @@
 import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
+import { BRAND_NAME } from "@/app/lib/brand";
 
 export const runtime = "nodejs";
 
@@ -58,7 +59,7 @@ export async function POST(request: Request) {
     await transporter.sendMail({
       from: fromEmail,
       to: email,
-      subject: `Advit Hub Contact - ${contactingFor} - ${name}`,
+      subject: `${BRAND_NAME} Contact - ${contactingFor} - ${name}`,
       text: [
         `Name: ${name}`,
         `Email: ${email}`,
@@ -70,7 +71,7 @@ export async function POST(request: Request) {
       ].join("\n"),
       html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #0f172a;">
-          <h2 style="margin: 0 0 16px;">New Advit Hub contact</h2>
+          <h2 style="margin: 0 0 16px;">New ${BRAND_NAME} contact</h2>
           <p><strong>Name:</strong> ${name}</p>
           <p><strong>Email:</strong> ${email}</p>
           <p><strong>Phone:</strong> ${phone}</p>

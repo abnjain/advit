@@ -1,5 +1,7 @@
 "use client";
 
+import { BRAND_NAME, BRAND_EMAIL_HELLO, BRAND_URL, BRAND_URL_DISPLAY } from "@/app/lib/brand";
+
 const audiences = [
   {
     icon: "student",
@@ -174,7 +176,7 @@ export default function CTASection() {
             }}
           >
             Whether you want to learn real skills, hire industry-ready talent,
-            or build something together — Advit Hub is where it happens.
+            or build something together — {BRAND_NAME} is where it happens.
           </p>
         </div>
 
@@ -279,7 +281,7 @@ export default function CTASection() {
           >
             Questions?{" "}
             <a
-              href="/contact?source=cta-questions"
+              href={`mailto:${BRAND_EMAIL_HELLO}`}
               style={{
                 color: "#60A5FA",
                 fontWeight: 600,
@@ -287,11 +289,11 @@ export default function CTASection() {
                 borderBottom: "1px solid rgba(96,165,250,0.3)",
               }}
             >
-              hello@advithub.com
+              {BRAND_EMAIL_HELLO}
             </a>
             {" · "}
             <a
-              href="https://advithub.in"
+              href={BRAND_URL}
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -301,7 +303,7 @@ export default function CTASection() {
                 borderBottom: "1px solid rgba(96,165,250,0.3)",
               }}
             >
-              advithub.in
+              {BRAND_URL_DISPLAY}
             </a>
           </p>
         </div>

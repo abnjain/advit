@@ -1,5 +1,7 @@
 "use client";
 
+import { BRAND_NAME } from "@/app/lib/brand";
+
 const stats = [
   { num: "12+", label: "Skill Domains" },
   { num: "100+", label: "Live Projects" },
@@ -330,7 +332,7 @@ export default function HeroSection() {
             fontWeight: 400,
           }}
         >
-          Advit Hub connects learning with real execution — practical training,
+          {BRAND_NAME} connects learning with real execution — practical training,
           live and freelance projects, internal product development, placements,
           and global partnerships across IT, AI, cloud, design, and business
           technology.

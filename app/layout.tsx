@@ -1,24 +1,22 @@
 import type { Metadata } from "next";
+import { BRAND_NAME, BRAND_TAGLINE, BRAND_DESCRIPTION, BRAND_TAGLINE_SHORT, BRAND_URL } from "@/app/lib/brand";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Advit Hub — Education-First Innovation Ecosystem",
-  description:
-    "Advit Hub is an education-first innovation ecosystem where students learn real skills, build live projects, and grow into industry-ready professionals.",
+  title: `${BRAND_NAME} — ${BRAND_TAGLINE}`,
+  description: BRAND_DESCRIPTION,
   keywords:
     "education, tech training, web development, software development, AI, cloud, DevOps, placements, freelance projects, Indore, India",
   openGraph: {
-    title: "Advit Hub",
-    description:
-      "Advit Hub is an education-first innovation ecosystem where students learn real skills, build live projects, and grow into industry-ready professionals.",
+    title: BRAND_NAME,
+    description: BRAND_DESCRIPTION,
     type: "website",
-    url: "https://advithub.in",
+    url: BRAND_URL,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Advit Hub",
-    description:
-      "Learn real skills, build real products, get placed.",
+    title: BRAND_NAME,
+    description: BRAND_TAGLINE_SHORT,
   },
 };
 

@@ -1,10 +1,12 @@
 "use client";
 
+import { BRAND_NAME } from "@/app/lib/brand";
+
 const hiringPerks = [
   {
     icon: "briefcase",
     title: "Full-time roles",
-    desc: "Top performers transition directly into paid full-time positions within the Advit Hub team.",
+    desc: `Top performers transition directly into paid full-time positions within the ${BRAND_NAME} team.`,
     color: "#2563EB",
     bg: "#EFF6FF",
     border: "#BFDBFE",
@@ -94,7 +96,7 @@ export default function HiringSection() {
           >
             Top performers get hired —
             <br />
-            directly into Advit Hub
+            directly into {BRAND_NAME}
           </h2>
           <p
             style={{

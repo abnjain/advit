@@ -1,5 +1,15 @@
 "use client";
 
+import {
+  BRAND_LOGO_PATH,
+  BRAND_LOGO_ALT,
+  BRAND_NAME,
+  BRAND_EMAIL_CONTACT,
+  BRAND_URL,
+  BRAND_URL_DISPLAY,
+  BRAND_COPYRIGHT,
+} from "@/app/lib/brand";
+
 const footerLinks = {
   Learn: [
     { label: "Domains", href: "#domains" },
@@ -63,23 +73,16 @@ export default function Footer() {
                 marginBottom: 16,
               }}
             >
-              <div
+              <img
+                src={BRAND_LOGO_PATH}
+                alt={BRAND_LOGO_ALT}
                 style={{
-                  width: 32,
                   height: 32,
-                  borderRadius: 9,
-                  background: "linear-gradient(135deg, #2563EB, #7C3AED)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: 14,
-                  fontWeight: 800,
-                  color: "#fff",
-                  fontFamily: "var(--font-sans)",
+                  width: "auto",
+                  flexShrink: 0,
+                  borderRadius: 6,
                 }}
-              >
-                A
-              </div>
+              />
               <span
                 style={{
                   fontSize: 16,
@@ -89,7 +92,7 @@ export default function Footer() {
                   letterSpacing: "-0.02em",
                 }}
               >
-                Advit Hub
+                {BRAND_NAME}
               </span>
             </div>
             <p
@@ -239,7 +242,7 @@ export default function Footer() {
               fontFamily: "var(--font-sans)",
             }}
           >
-            © 2026 Advit Hub. Learn. Build. Work. Get Placed.
+            {BRAND_COPYRIGHT}
           </p>
           <div
             style={{
@@ -250,7 +253,7 @@ export default function Footer() {
             }}
           >
             <a
-              href="mailto:contact@advithub.in"
+              href={`mailto:${BRAND_EMAIL_CONTACT}`}
               style={{
                 fontSize: 12,
                 color: "#334155",
@@ -265,10 +268,10 @@ export default function Footer() {
                 ((e.target as HTMLAnchorElement).style.color = "#334155")
               }
             >
-              contact@advithub.in
+              {BRAND_EMAIL_CONTACT}
             </a>
             <a
-              href="https://advithub.in"
+              href={BRAND_URL}
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -285,7 +288,7 @@ export default function Footer() {
                 ((e.target as HTMLAnchorElement).style.color = "#334155")
               }
             >
-              advithub.in
+              {BRAND_URL_DISPLAY}
             </a>
           </div>
         </div>

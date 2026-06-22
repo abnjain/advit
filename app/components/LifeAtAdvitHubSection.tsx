@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { BRAND_NAME, BRAND } from "@/app/lib/brand";
 
 type LifePhoto = {
   src: string;
@@ -13,20 +14,20 @@ type LifePhoto = {
 const photos: LifePhoto[] = [
   {
     src: "/assets/journey/IMG_20240830_172107.jpg%20(2).jpeg",
-    alt: "Advit Hub team discussion around a table",
+    alt: `${BRAND_NAME} team discussion around a table`,
     title: "Collaborative sessions",
     caption:
       "Open conversations, active listening, and shared problem-solving.",
   },
   {
     src: "/assets/journey/vvd.jpeg",
-    alt: "Advit Hub community gathering in a workshop space",
+    alt: `${BRAND_NAME} community gathering in a workshop space`,
     title: "Community workshops",
     caption: "Hands-on sessions where ideas move from whiteboard to workbench.",
   },
   {
     src: "/assets/journey/vvdBangalore.jpeg",
-    alt: "Advit Hub group session in a modern workspace",
+    alt: `${BRAND_NAME} group session in a modern workspace`,
     title: "Life at the hub",
     caption:
       "A real environment for learning, building, and meeting collaborators.",
@@ -170,7 +171,7 @@ export default function LifeAtAdvitHubSection() {
 
   return (
     <section
-      id="life-at-advit-hub"
+      id={BRAND.sectionIdLifeAtAdvitHub}
       style={{
         padding: "96px 0",
         background: "linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)",
@@ -191,7 +192,7 @@ export default function LifeAtAdvitHubSection() {
               fontFamily: "var(--font-sans)",
             }}
           >
-            Life at Advit Hub
+            Life at {BRAND_NAME}
           </div>
           <h2
             style={{
@@ -216,7 +217,7 @@ export default function LifeAtAdvitHubSection() {
             }}
           >
             A visual carousel of the people, rooms, and conversations that shape
-            everyday life at Advit Hub.
+            everyday life at {BRAND_NAME}.
           </p>
         </div>
 

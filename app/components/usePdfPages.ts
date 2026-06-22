@@ -1,9 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
-export const BROCHURE_PDF_URL = "/assets/brochure/advit-hub-brochure.pdf";
-export const BROCHURE_DOWNLOAD_NAME = "Advit-Hub-Brochure.pdf";
+import { BROCHURE_PDF_URL, BROCHURE_DOWNLOAD_NAME } from "@/app/lib/brand";
 
 export type RenderedPage = {
   src: string; // data URL
